@@ -1,73 +1,102 @@
-"use client"
+"use client";
 import { Timer } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-export default function Hero(){
+export default function Hero() {
+  const containerRef = useRef(null);
 
-    useGSAP(() => {
+  useGSAP(() => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: containerRef.current,
+            toggleActions: "play reverse play reverse"
+        }
+    });
 
-        const mainTl = gsap.timeline();
+    tl.set(".right-container", { opacity: 0, x: 100 })
+      .set(".left-container", { opacity: 0, x: -100 })
+      .set(".letter", { opacity: 0, y: 40 })
+      .to(".right-container", {
+        opacity: 1,
+        x: 0,
+        delay: 0.5,
+        duration: 0.7,
+        ease: "power1.out",
+      })
+      .to(".left-container", {
+        opacity: 1,
+        x: 0,
+        duration: 0.7,
+        ease: "power1.out",
+      })
+      .to(".letter", {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.2,
+        ease: "power2.inOut",
+      });
+  }, { scope: containerRef });
 
-        mainTl.set(".right-container", {
-            opacity: 0,
-            x: 100
-        }).set(".left-container", {
-            opacity: 0,
-            x: -100
-        }).to(".right-container", {
-            opacity: 1,
-            x: 0,
-            delay: 0.9,
-            duration: 0.7,
-            ease: "power1.out",
-        }).set(".main.text", {
-            opacity: 0,
-            y: 10,
-        }).to(".left-container", {
-            opacity: 1,
-            x:0,
-            duration: 0.7,
-            ease: "power1.out",
-        }).to(".main-text", {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            stagger: 1,
-            ease: "power1.out"
-        })
-        
-    })
+  return (
+    <section
+      ref={containerRef}
+      className="h-full w-full flex overflow-clip flex-col sm:flex-row justify-between pt-20"
+    >
+      <div className="w-full flex flex-col sm:w-7/12 sm:pt-52 left-container opacity-0">
+        <h2 className="flex uppercase text-xl font-inter items-center pb-4">
+          <Timer className="text-[#b8ff34] mr-2" />
+          Project will kickoff within 24 hours
+        </h2>
 
-    return (
-        <section className="h-full w-full flex overflow-clip flex-col sm:flex-row justify-between pt-20">
-            <div className="w-full flex flex-col sm:w-7/12 pt-52 left-container opacity-0">
-                <h2 className="flex uppercase text-xl font-inter items-center pb-4">
-                    <Timer className="text-[#b8ff34] mr-2" />
-                    Project will kickoff within 24 hours
-                </h2>
-                <h1 className= "text-7xl sm:text-[150px] leading-32 text-white flex-wrap font-semibold uppercase">
-                <div className="flex items-end main-text opacity-0">
-                VISUAL
-                <div className="flex pb-2 pl-2">
-                <div className="bg-white w-6 h-6 rounded-full z-10 " />
-                    <div className="bg-black border -ml-2 border-white w-6 h-6 rounded-full " />
-                </div>
-                </div>
-                <p className="flex z-10 relative main-text opacity-0">
-                DESIGNER
-                <img src="circle.svg" alt="circle image" className="absolute -right-28 -top-10 -z-10" />
-                </p>
-                </h1>
+        <div className="text-7xl sm:text-[150px] leading-[87px] sm:leading-32 text-white font-semibold uppercase">
+          <div className="flex items-end flex-wrap main-text">
+            {"VISUAL".split("").map((char, i) => (
+              <span key={`v-${i}`} className="inline-block letter">
+                {char}
+              </span>
+            ))}
+
+            <div className="flex pb-4 sm:pb-2 pl-4">
+              <div className="bg-white w-6 h-6 rounded-full z-10" />
+              <div className="bg-black border -ml-2 border-white w-6 h-6 rounded-full" />
             </div>
-            <div className="w-full flex-col right-container opacity-0 pl-7 sm:w-5/12">
-                <video src="intro.mp4" className="pointer-events-none w-[250px]" autoPlay loop playsInline muted />
-                <div className="text-md pr-20 font-inter font-semibold leading-5 uppercase line-clamp-4 pt-4">
-                xotto® is a leadingleading strategic brand consultancy that positions and redefines the world's most exciting tech companies.
-                </div>
-            </div>
-        </section>
-    )
+          </div>
+
+          <div className="flex z-10 relative main-text">
+            {"DESIGNER".split("").map((char, i) => (
+              <span key={`d-${i}`} className="inline-block letter">
+                {char}
+              </span>
+            ))}
+            <img
+              src="circle.svg"
+              alt="circle"
+              className="absolute hidden sm:block -right-28 -top-10 -z-10"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full flex-col right-container opacity-0 sm:pl-7 sm:w-5/12 pt-7 sm:pt-0">
+        <video
+          src="intro.mp4"
+          className="pointer-events-none sm:w-[250px]"
+          autoPlay
+          loop
+          playsInline
+          muted
+        />
+        <div className="text-md sm:pr-20 font-inter font-semibold leading-5 uppercase line-clamp-4 pt-4 text-center sm:text-start">
+          xotto® is a leading strategic brand consultancy that positions and
+          redefines the world's most exciting tech companies.
+        </div>
+      </div>
+    </section>
+  );
 }
