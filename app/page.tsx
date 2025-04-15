@@ -1,6 +1,8 @@
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Profile from "@/components/Profile";
+import Projects from "@/components/Projects";
+import SelectedWork from "@/components/SelectedWork";
 
 export default function Home() {
   return (
@@ -8,6 +10,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Profile />
+      <SelectedWork />
+      <Projects />
     </main>
   )
 }

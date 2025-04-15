@@ -14,7 +14,7 @@ export default function Profile() {
                 scale: 1.1,
                 transformOrigin: "center center",
         }, {
-            scale: 0.9,
+            scale: 1,
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "top top",
@@ -31,7 +31,7 @@ export default function Profile() {
                 <img
                 src="dude.avif"
                 alt="profile picture"
-                className="image absolute w-full h-full"
+                className="image absolute w-full h-full object-cover" 
                 />
             </div>
             <div className="flex flex-col sm:flex-row justify-between pt-1">
