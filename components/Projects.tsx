@@ -7,7 +7,7 @@ export default function Projects() {
             {projectsData.map((project) => (
                 <div key={project.id} className="w-full sm:w-1/2 p-4 flex flex-col ">
                     <div className="h-full w-full overflow-clip rounded-md">
-                    <img src={project.image} alt="project image " className="rounded-md  transition-transform duration-300 hover:cur hover:scale-105" />
+                    <img src={project.image} alt="project image " className="rounded-md project-image transition-transform duration-300 hover:cur hover:scale-105" />
                     </div>
                     <div className="flex justify-between text-xl font-inter font-semibold text-white py-7">
                         <h4 className="flex flex-col">
