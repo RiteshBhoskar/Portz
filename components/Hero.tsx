@@ -54,19 +54,21 @@ export default function Hero() {
           Project will kickoff within 24 hours
         </h2>
 
-        <div className="text-7xl sm:text-[150px] leading-[87px] sm:leading-32 text-white font-semibold uppercase">
-          <div className="flex items-end flex-wrap main-text">
+        <div className="text-[67px] sm:text-[150px] leading-[87px] sm:leading-32 text-white font-semibold uppercase">
+          <div className="flex items-end">
             {"VISUAL".split("").map((char, i) => (
               <span key={`v-${i}`} className="inline-block letter">
                 {char}
               </span>
             ))}
+
             <div className="flex pb-4 sm:pb-2 pl-4">
               <div className="bg-white w-6 h-6 rounded-full z-10" />
               <div className="bg-black border -ml-2 border-white w-6 h-6 rounded-full" />
             </div>
           </div>
-          <div className="flex z-10 relative main-text">
+
+          <div className="flex z-10 relative">
             {"DESIGNER".split("").map((char, i) => (
               <span key={`d-${i}`} className="inline-block letter">
                 {char}

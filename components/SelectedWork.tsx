@@ -25,11 +25,25 @@ export default function SelectedWork() {
                 toggleActions: "play reverse play reverse"
             }
         })
+        gsap.fromTo(".left-container", {
+            opacity: 0,
+            x: 100,
+        }, {
+            opacity: 1,
+            x: 0,
+            ease: "power2.inOut",
+            duration: 1,
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 70%",
+                toggleActions: "play reverse play reverse"
+            }
+        })
     }, { scope: sectionRef })
 
     return (
         <section ref={sectionRef} className="w-full overflow-clip h-full flex flex-col sm:flex-row py-24 space-y-7 sm:space-y-0">
-            <div className="w-full sm:w-1/2 font-semibold font-inter sm:pr-12 text-center flex flex-col sm:text-start text-7xl sm:text-8xl">
+            <div className="w-full sm:w-1/2 font-semibold font-inter sm:pr-12 text-center flex flex-col sm:text-start text-6xl sm:text-8xl">
                 <span className="animation">
                     SELECTED
                 </span>
@@ -37,7 +51,7 @@ export default function SelectedWork() {
                     WORK
                 </span>
             </div>
-            <div className="flex flex-col w-full sm:w-1/2">
+            <div className="flex flex-col w-full left-container sm:w-1/2">
                 <div className="w-full flex justify-center sm:justify-end items-center">
                     <div className="w-6 mr-2 bg-white rounded-full h-6" />
                     <div className="bg-[#b8ff34] px-4 rounded-sm tracking-widest text-black font-semibold py-1">

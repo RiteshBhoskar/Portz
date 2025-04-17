@@ -38,12 +38,11 @@ export default function Footer() {
           </div>
           <div className="flex w-full bg-white h-[1px] rounded-full" />
 
-          <div className="flex justify-between items-center">
-            <span className="uppercase font-semibold text-xl">
+          <div className="flex justify-between w-full items-center">
+            <span className="uppercase font-semibold text-lg sm:text-xl">
             ©2025 design
             </span>
-            <span className="uppercase font-semibold text-2xl flex items-center">
-                
+            <span className="uppercase font-semibold text-lg sm:text-2xl flex items-center">
             <div className="flex pr-3">
               <div className="bg-white w-6 h-6 rounded-full z-10" />
               <div className="bg-black border -ml-2 border-white w-6 h-6 rounded-full" />

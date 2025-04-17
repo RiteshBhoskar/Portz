@@ -58,16 +58,16 @@ export default function Invite() {
         <button className="text-gray-900 flex justify-start bg-white px-4 font-semibold py-1 rounded-sm sm:mt-5 my-7 hover:bg-[#b8ff34]  cursor-pointer transition-all duration-2000 ease-in-out">
                     CONTACT NOW
         </button>
-        <div className="flex gap-7 pt-14">
-            <span className="uppercase flex font-semibold text-md underline">
+        <div className="flex gap-1 sm:gap-7 pt-14">
+            <span className="uppercase flex font-semibold underline">
                 instagram
                 <ArrowUpRight />
             </span>
-            <span className="uppercase flex font-semibold text-md underline">
+            <span className="uppercase flex font-semibold underline">
                 twitter
                 <ArrowUpRight />
             </span>
-            <span className="uppercase flex font-semibold text-md underline">
+            <span className="uppercase flex font-semibold underline">
                 facebook
                 <ArrowUpRight />
             </span>
