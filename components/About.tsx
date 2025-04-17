@@ -24,10 +24,38 @@ export default function About () {
                 toggleActions: "play reverse play reverse"
             }
         })
+        gsap.fromTo(".left-container", {
+          opacity: 0,
+          x: -100,
+        } , {
+          opacity: 1,
+          x: 0,
+          duration: 0.7,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: ".left-container",
+            start: "top 70%",
+            toggleActions: "play reverse play reverse"
+          }
+        })
+        gsap.fromTo(".right-container", {
+          opacity: 0,
+          x: 100,
+        } , {
+          opacity: 1,
+          x: 0,
+          duration: 0.7,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: ".right-container",
+            start: "top 70%",
+            toggleActions: "play reverse play reverse"
+          }
+        })
     }, { scope: sectionRef })
 
     return (
-        <section ref={sectionRef} className="sm:py-20 h-full w-full flex flex-col">
+        <section ref={sectionRef} className="sm:py-20 h-full overflow-clip w-full flex flex-col">
             <div className="flex flex-col h-full w-full">
                 <h3 className="text-white main-text flex text-7xl sm:text-[100px] font-semibold w-full">
                     ABOUT JAURDEN
@@ -46,14 +74,14 @@ export default function About () {
             </div>
 
             <div className="flex flex-col sm:flex-row w-full h-full py-24 ">
-                <div className="w-full sm:w-1/2 flex flex-col justify-between items-center sm:items-start">
+                <div className="w-full sm:w-1/2 flex flex-col justify-between left-container items-center sm:items-start">
                 <img src="jaurden.avif" alt="profile image" className="rounded-md " />
                 <button className="text-gray-900 flex justify-start bg-white px-4 font-semibold py-1 rounded-sm sm:mt-5 my-7 hover:bg-[#b8ff34]  cursor-pointer transition-all duration-3000 ease-in-out">
                     DOWNLOAD RESUME
                 </button>
                 </div>
 
-                <div className="flex flex-col h-full w-full sm:w-1/2 space-y-4 px-5 sm:px-10">
+                <div className="flex flex-col h-full w-full sm:w-1/2 right-container space-y-4 px-5 sm:px-10">
                     <h5 className="text-xl font-semibold font-inter">
                         [ ABOUT ME ]
                     </h5>

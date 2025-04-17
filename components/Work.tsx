@@ -45,6 +45,7 @@ const workData = [
 
 export default function Work() {
     const sectionRef = useRef(null);
+    const lastWorkRef = useRef(null);
 
     useGSAP(() => {
         gsap.fromTo(".main-heading", {
@@ -67,8 +68,11 @@ export default function Work() {
                 ScrollTrigger.create({
                     trigger: ".paper-image",
                     start: "top top+=70",
+                    endTrigger: lastWorkRef.current,
+                    end: "bottom bottom",
                     toggleActions: "play reverse play reverse",
                     pin: true,
+                    pinSpacing: true,
                 })
             }
         })
@@ -90,12 +94,14 @@ export default function Work() {
             </div>
 
             <div className="flex flex-col sm:flex-row justify-between h-full w-full pt-20 sm:space-x-20">
-                <div className="w-full sm:w-1/2 paper-image">
+                <div className="w-full h-fit sm:w-1/2 paper-image">
                     <img src="paper.avif" alt="newspaper image" />
                 </div>
                 <div className="flex flex-col pt-7 sm:pt-0 h-full space-y-10 w-full sm:mr-5 sm:w-[500px]">
-                    {workData.map((e) => (
-                        <div key={e.id} className="flex flex-col h-full w-full">
+                    {workData.map((e, index) => (
+                        <div key={e.id} className="flex flex-col h-full w-full"
+                        ref={index === workData.length - 1 ? lastWorkRef : null}
+                        >
                             <p className="font-semibold text-lg">
                                 [ {e.id} ]
                             </p>

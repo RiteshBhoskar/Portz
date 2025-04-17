@@ -1,5 +1,8 @@
 import About from "@/components/About";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import Invite from "@/components/Invite";
+import Mandarin from "@/components/Mandarin";
 import Markquee from "@/components/Marquee";
 import Navbar from "@/components/Navbar";
 import Profile from "@/components/Profile";
@@ -18,6 +21,9 @@ export default function Home() {
       <About />
       <Markquee />
       <Work />
+      <Mandarin />
+      <Invite />
+      <Footer />
     </main>
   )
 }

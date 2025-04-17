@@ -61,13 +61,11 @@ export default function Hero() {
                 {char}
               </span>
             ))}
-
             <div className="flex pb-4 sm:pb-2 pl-4">
               <div className="bg-white w-6 h-6 rounded-full z-10" />
               <div className="bg-black border -ml-2 border-white w-6 h-6 rounded-full" />
             </div>
           </div>
-
           <div className="flex z-10 relative main-text">
             {"DESIGNER".split("").map((char, i) => (
               <span key={`d-${i}`} className="inline-block letter">
